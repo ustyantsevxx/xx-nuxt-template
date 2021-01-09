@@ -35,9 +35,14 @@
         <portal-target v-else name="search-bar-md-portal" />
         <div class="justify-self-center">{{ $mq.toUpperCase() }}</div>
         <div class="justify-self-end">
-          <button class="py-1 px-4 font-medium bg-yellow-500 rounded-lg">
+          <button
+            v-if="!$auth.loggedIn"
+            class="py-1 px-4 font-medium bg-yellow-500 rounded-lg"
+            @click="login"
+          >
             Вход
           </button>
+          <div v-else @click="logout">{{ $auth.user.first_name }}</div>
         </div>
       </div>
 
@@ -134,6 +139,15 @@ export default class extends Vue {
         this.horizontalMenuVisible = !(offsetY <= 25)
       })
     }
+  }
+
+  async login() {
+    await this.$auth.loginWith('local', {
+      data: {
+        email: '',
+        password: ''
+      }
+    })
   }
 }
 </script>
