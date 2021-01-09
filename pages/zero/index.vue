@@ -42,7 +42,7 @@
           >
             Вход
           </button>
-          <div v-else @click="logout">{{ $auth.user.first_name }}</div>
+          <div v-else>{{ $auth.user.first_name }}</div>
         </div>
       </div>
 
@@ -82,39 +82,8 @@
         </div>
       </div>
     </nav>
-    <div class="mx-auto w-32 text-center text-gray-400">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad adipisci
-      consequuntur cupiditate dolorem dolores eveniet, id natus pariatur rem
-      repellat, rerum sapiente unde voluptatem? Ab aliquam consequatur corporis
-      ea esse et eum ex incidunt laboriosam magnam nihil, pariatur quae qui
-      ratione, recusandae reiciendis rerum sequi, sunt totam voluptatum. A animi
-      culpa dignissimos dolorum eius, expedita fuga fugiat incidunt maxime quis
-      rem repellendus? Accusamus at consequuntur delectus hic labore maiores
-      necessitatibus pariatur quia quos tempore. Ab adipisci alias aperiam autem
-      consequatur cum delectus dignissimos dolor doloribus earum enim esse
-      excepturi hic, illo itaque iure magnam maxime mollitia nemo obcaecati
-      officia omnis optio perferendis porro praesentium quis quo ratione rem,
-      sapiente sequi similique ullam veniam voluptatibus. Nam praesentium qui
-      recusandae sapiente? Ab aperiam dignissimos, earum enim et incidunt
-      inventore laborum maxime nesciunt odit perferendis possimus quas quidem
-      repellat sit ut vel veniam voluptatem! Atque, beatae delectus doloremque,
-      eaque, error eum exercitationem harum nisi obcaecati provident quasi qui
-      saepe sapiente! A amet deleniti eveniet ex libero. A aperiam architecto,
-      at blanditiis cum dolore dolores dolorum ducimus et eum expedita in itaque
-      laborum, libero minus molestias nisi nulla optio provident quaerat quasi
-      quidem quo recusandae reprehenderit rerum suscipit totam unde velit
-      veritatis vero? Ad adipisci assumenda atque autem consequatur cum
-      distinctio dolorum earum est explicabo harum ipsum iure iusto maxime
-      molestias nesciunt odio officia officiis placeat quas ratione reiciendis,
-      repellat saepe sed similique unde voluptate. Accusantium amet, dicta iure
-      labore omnis reprehenderit sint voluptate. At, numquam, officia.
-      Accusantium alias atque beatae consequatur consequuntur delectus deleniti
-      deserunt dolor, dolores eius eos eveniet fuga in inventore ipsam magnam
-      minus nemo odit officia optio pariatur quia reiciendis rem repellendus
-      repudiandae sit soluta veritatis. Accusamus architecto doloremque eius eos
-      hic in ipsam laboriosam, magni natus nesciunt nihil officia perferendis
-      placeat quae, quidem quisquam, repellat sapiente sequi tempore totam.
-    </div>
+    <div class="h-screen"></div>
+    <div class="h-screen"></div>
   </div>
 </template>
 

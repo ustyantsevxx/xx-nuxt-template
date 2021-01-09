@@ -1,6 +1,10 @@
 <template>
   <div>
-    <div @click="showNav">
+    <div
+      class="transition-transform duration-300"
+      :class="{ 'transform scale-95': navVisible }"
+      @click="showNav"
+    >
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae
       consequuntur nisi totam veniam vitae? Atque cupiditate, distinctio eveniet
       facere natus nemo sit! Ducimus eius illum quam. Consequuntur facilis,
@@ -35,21 +39,25 @@
       cupiditate dolorem dolorum est magni maxime numquam perspiciatis ratione
       velit?
     </div>
-    <nav
-      class="absolute inset-0 transition-all duration-300 flex justify-center items-center"
-      :class="{
-        hidden: !navVisible,
-        'z-30 block': navVisible,
-        'bg-black bg-opacity-75 blurred': navVisible && navShown
-      }"
-      @click="hideNav"
+    <transition
+      name="blurred"
+      @after-enter="navShown = true"
+      @after-leave="navShown = false"
+      enter-to-class="nav-shown"
     >
-      <ul class="text-white text-2xl text-center">
-        <li>Main</li>
-        <li>Submain</li>
-        <li>Fuck off</li>
-      </ul>
-    </nav>
+      <nav
+        v-if="navVisible"
+        class="absolute inset-0 flex justify-center items-center"
+        :class="{ 'bg-black bg-opacity-75 blur nav-shown': navShown }"
+        @click="hideNav"
+      >
+        <ul class="text-white text-2xl text-center">
+          <li>Main</li>
+          <li>Profile</li>
+          <li>Settings</li>
+        </ul>
+      </nav>
+    </transition>
   </div>
 </template>
 
@@ -58,26 +66,35 @@ import Vue from 'vue'
 import { Component } from 'nuxt-property-decorator'
 
 @Component
-export default class BlurIndex extends Vue {
+export default class ZeroIndexPage extends Vue {
   navVisible = false
   navShown = false
 
-  async showNav() {
+  showNav() {
     this.navVisible = true
-    await new Promise(resolve => setTimeout(resolve))
-    this.navShown = true
   }
 
-  async hideNav() {
-    this.navShown = false
-    await new Promise(resolve => setTimeout(resolve, 300))
+  hideNav() {
     this.navVisible = false
   }
 }
 </script>
 
 <style>
-.blurred {
-  backdrop-filter: blur(8px);
+.blur {
+  backdrop-filter: blur(5px);
+}
+
+.blurred-leave-active,
+.blurred-enter-active {
+  @apply transition-all duration-300;
+}
+
+.blurred-leave-to {
+  @apply bg-opacity-0 opacity-0;
+}
+
+.nav-shown {
+  @apply bg-black bg-opacity-75 blur;
 }
 </style>
