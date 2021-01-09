@@ -38,7 +38,11 @@ const config: NuxtConfig = {
 
   plugins: [],
 
-  buildModules: ['@nuxt/typescript-build'],
+  buildModules: [
+    '@nuxt/typescript-build',
+    '@nuxtjs/tailwindcss',
+    'nuxt-typed-vuex'
+  ],
 
   modules: ['@nuxtjs/axios'],
 
