@@ -34,34 +34,11 @@ const config: NuxtConfig = {
     }
   },
 
-  build: {
-    ...(inProduction && {
-      html: {
-        minify: {
-          collapseBooleanAttributes: true,
-          decodeEntities: true,
-          minifyCSS: true,
-          minifyJS: true,
-          processConditionalComments: true,
-          removeEmptyAttributes: true,
-          removeRedundantAttributes: true,
-          trimCustomFragments: true,
-          useShortDoctype: true
-        }
-      },
-      modern: 'client'
-    }),
-    cssSourceMap: false,
-    cache: inProduction
-  },
-
   buildModules: [
     '@nuxt/typescript-build',
     '@nuxtjs/tailwindcss',
     'nuxt-typed-vuex'
   ],
-
-  css: [],
 
   head: {
     title: 'archie-nuxt-ts-tailwind',
@@ -76,12 +53,6 @@ const config: NuxtConfig = {
   modules: ['@nuxtjs/axios', 'portal-vue/nuxt', '@nuxtjs/auth-next'],
 
   plugins: ['~/plugins/vue-mq.js'],
-
-  splitChunks: {
-    layouts: true,
-    pages: true,
-    commons: true
-  },
 
   vue: {
     // @ts-ignore

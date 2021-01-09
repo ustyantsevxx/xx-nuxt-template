@@ -6,7 +6,12 @@ export type User = {
   avatar: object
   citizenship: any
   city_residence: string
-  company: { id: number; name: string; site_url: string; inn: number }
+  company: {
+    id: number
+    name: string
+    site_url: string
+    inn: number
+  }
   company_id: number
   email: string
   first_name: string

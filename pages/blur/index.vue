@@ -41,9 +41,9 @@
     </div>
     <transition
       name="blurred"
+      enter-to-class="nav-shown"
       @after-enter="navShown = true"
       @after-leave="navShown = false"
-      enter-to-class="nav-shown"
     >
       <nav
         v-if="navVisible"
