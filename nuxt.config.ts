@@ -36,7 +36,7 @@ const config: NuxtConfig = {
 
   css: [],
 
-  plugins: [],
+  plugins: ['~/plugins/vue-mq.js'],
 
   buildModules: [
     '@nuxt/typescript-build',
@@ -44,7 +44,7 @@ const config: NuxtConfig = {
     'nuxt-typed-vuex'
   ],
 
-  modules: ['@nuxtjs/axios'],
+  modules: ['@nuxtjs/axios', 'portal-vue/nuxt'],
 
   splitChunks: {
     layouts: true,
