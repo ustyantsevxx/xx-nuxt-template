@@ -5,7 +5,7 @@ import {
   getterTree
 } from 'nuxt-typed-vuex'
 
-import * as quotes from './quotes'
+import * as companies from './companies'
 
 export const state = () => ({})
 
@@ -20,5 +20,5 @@ export const accessorType = getAccessorType({
   getters,
   mutations,
   state,
-  modules: { quotes }
+  modules: { companies }
 })
