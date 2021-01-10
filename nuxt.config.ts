@@ -52,6 +52,10 @@ const config: NuxtConfig = {
 
   modules: ['@nuxtjs/axios', '@nuxtjs/auth-next'],
 
+  server: {
+    host: '0.0.0.0'
+  },
+
   plugins: ['~/plugins/vue-mq'],
 
   vue: {

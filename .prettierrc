@@ -5,6 +5,5 @@
   "arrowParens": "avoid",
   "endOfLine": "auto",
   "printWidth": 80,
-  "tabWidth": 2,
-  "htmlWhitespaceSensitivity": "ignore"
+  "tabWidth": 2
 }
