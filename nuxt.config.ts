@@ -50,9 +50,9 @@ const config: NuxtConfig = {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
 
-  modules: ['@nuxtjs/axios', 'portal-vue/nuxt', '@nuxtjs/auth-next'],
+  modules: ['@nuxtjs/axios', '@nuxtjs/auth-next'],
 
-  plugins: ['~/plugins/vue-mq.js'],
+  plugins: ['~/plugins/vue-mq'],
 
   vue: {
     // @ts-ignore

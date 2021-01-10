@@ -1,42 +1,24 @@
-import { getAccessorType, mutationTree, actionTree } from 'nuxt-typed-vuex'
+import {
+  getAccessorType,
+  mutationTree,
+  actionTree,
+  getterTree
+} from 'nuxt-typed-vuex'
+
 import * as quotes from './quotes'
 
-export const state = () => ({
-  email: ''
-})
+export const state = () => ({})
 
-type RootState = ReturnType<typeof state>
+export const getters = getterTree(state, {})
 
-export const getters = {
-  email: (state: RootState) => state.email,
-  fullEmail: (state: RootState) => state.email
-}
+export const mutations = mutationTree(state, {})
 
-export const mutations = mutationTree(state, {
-  setEmail(state, newValue: string) {
-    state.email = newValue
-  },
-
-  initialiseStore() {
-    console.log('initialised')
-  }
-})
-
-export const actions = actionTree(
-  { state, getters, mutations },
-  {
-    resetEmail({ commit }) {
-      commit('setEmail', 'a@a.com')
-    }
-  }
-)
+export const actions = actionTree({ state, getters, mutations }, {})
 
 export const accessorType = getAccessorType({
   actions,
   getters,
   mutations,
   state,
-  modules: {
-    quotes
-  }
+  modules: { quotes }
 })

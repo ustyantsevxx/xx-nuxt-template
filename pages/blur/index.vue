@@ -63,21 +63,26 @@
 
 <script>
 import Vue from 'vue'
-import { Component } from 'nuxt-property-decorator'
 
-@Component
-export default class ZeroIndexPage extends Vue {
-  navVisible = false
-  navShown = false
+export default Vue.extend({
+  data() {
+    return {
+      navVisible: false,
+      navShown: false
+    }
+  },
 
-  showNav() {
-    this.navVisible = true
+  methods: {
+    async showNav() {
+      await this.$accessor.SET_EMAIL()
+      this.navVisible = true
+    },
+
+    hideNav() {
+      this.navVisible = false
+    }
   }
-
-  hideNav() {
-    this.navVisible = false
-  }
-}
+})
 </script>
 
 <style>

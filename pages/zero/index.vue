@@ -32,8 +32,8 @@
           </svg>
         </div>
 
-        <portal-target v-else name="search-bar-md-portal" />
-        <div class="justify-self-center">{{ $mq.toUpperCase() }}</div>
+        <div v-else id="search-bar-md-portal" />
+        <div class="justify-self-center"></div>
         <div class="justify-self-end">
           <button
             v-if="!$auth.loggedIn"
@@ -59,7 +59,7 @@
         >
           <div class="w-full md:hidden">
             <portal
-              to="search-bar-md-portal"
+              selector="#search-bar-md-portal"
               :disabled="['xs', 'sm'].includes($mq)"
             >
               <label>
@@ -89,17 +89,23 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { Component, Watch } from 'nuxt-property-decorator'
+import { Portal } from '@linusborg/vue-simple-portal'
 
-@Component({})
-export default class extends Vue {
-  expanded = false
-  horizontalMenuVisible = false
+export default Vue.extend({
+  components: { Portal },
 
-  @Watch('$mq')
-  on$mqChange(value: string) {
-    if (['md', 'lg', 'xl'].includes(value)) this.expanded = false
-  }
+  data() {
+    return {
+      expanded: false,
+      horizontalMenuVisible: false
+    }
+  },
+
+  watch: {
+    $mq(value: string) {
+      if (['md', 'lg', 'xl'].includes(value)) this.expanded = false
+    }
+  },
 
   mounted() {
     if (document) {
@@ -108,17 +114,17 @@ export default class extends Vue {
         this.horizontalMenuVisible = !(offsetY <= 25)
       })
     }
-  }
+  },
 
-  async login() {
-    await this.$auth.loginWith('local', {
-      data: {
-        email: '',
-        password: ''
-      }
-    })
+  methods: {
+    async login() {
+      await this.$accessor.auth.login({
+        email: 'tuistssip@gmail.com',
+        password: '4815162342Igwt!'
+      })
+    }
   }
-}
+})
 </script>
 
 <style>

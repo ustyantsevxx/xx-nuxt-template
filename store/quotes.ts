@@ -1,34 +1,9 @@
 import { getterTree, mutationTree, actionTree } from 'nuxt-typed-vuex'
 
-export const state = () => ({
-  firstName: '',
-  lastName: ''
-})
+export const state = () => ({})
 
-export const getters = getterTree(state, {
-  fullName: state => state.firstName + ' ' + state.lastName
-})
+export const getters = getterTree(state, {})
 
-export const mutations = mutationTree(state, {
-  setFirstName(state, newValue: string) {
-    state.firstName = newValue
-  },
-  setLastName(state, newValue: string) {
-    state.lastName = newValue
-  }
-})
+export const mutations = mutationTree(state, {})
 
-export const actions = actionTree(
-  { state, getters, mutations },
-  {
-    initialise({ commit }) {
-      commit('setFirstName', 'John12453453')
-      commit('setLastName', 'Baker')
-    },
-    setName({ commit }, newName: string) {
-      const names = newName.split(' ')
-      commit('setFirstName', names[0])
-      if (names.length > 1) commit('setLastName', names[1])
-    }
-  }
-)
+export const actions = actionTree({ state, getters, mutations }, {})

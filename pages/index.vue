@@ -4,16 +4,20 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { Component } from 'nuxt-property-decorator'
 
-@Component({
-  middleware: 'auth'
-})
-export default class extends Vue {
-  title = 'nuxt-ts'
+export default Vue.extend({
+  middleware: 'auth',
 
-  async logout() {
-    await this.$auth.logout()
+  data() {
+    return {
+      title: 'nuxt-ts'
+    }
+  },
+
+  methods: {
+    async logout() {
+      await this.$auth.logout()
+    }
   }
-}
+})
 </script>
