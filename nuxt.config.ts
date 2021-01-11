@@ -40,6 +40,8 @@ const config: NuxtConfig = {
     'nuxt-typed-vuex'
   ],
 
+  css: ['~/assets/app.css'],
+
   head: {
     title: 'archie-nuxt-ts-tailwind',
     meta: [

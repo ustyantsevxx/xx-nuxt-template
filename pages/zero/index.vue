@@ -1,16 +1,22 @@
 <template>
-  <main class="h-screen bg-gray-200">
+  <main class="h-screen font-zero">
     <navbar />
-    <div class="h-screen bg-gray-200"></div>
-    <div class="h-screen bg-gray-200"></div>
+    <search-bar />
   </main>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import Navbar from '~/components/pages/zero/Navbar.vue'
+import SearchBar from '~/components/pages/zero/SearchBar/SearchBar.vue'
 
 export default Vue.extend({
-  components: { Navbar }
+  components: { SearchBar, Navbar }
 })
 </script>
+
+<style>
+body {
+  @apply bg-gray-200;
+}
+</style>
