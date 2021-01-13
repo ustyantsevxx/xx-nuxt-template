@@ -1,5 +1,5 @@
 <template>
-  <main class="h-screen font-zero">
+  <main class="container h-screen font-zeroplus">
     <navbar />
     <search-bar />
   </main>

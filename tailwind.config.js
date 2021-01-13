@@ -1,8 +1,13 @@
 module.exports = {
+  corePlugins: {
+    container: false
+  },
+
   future: {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true
   },
+
   purge: [],
 
   theme: {
@@ -22,9 +27,20 @@ module.exports = {
     },
     fontFamily: {
       sans: ['sans-serif'],
-      zero: ['Montserrat', 'sans-serif']
+      zeroplus: ['Montserrat', 'sans-serif']
     }
   },
+
   variants: {},
-  plugins: []
+
+  plugins: [
+    require('tailwind-bootstrap-grid')({
+      containerMaxWidths: {
+        sm: '640px',
+        md: '768px',
+        lg: '1024px',
+        xl: '1280px'
+      }
+    })
+  ]
 }

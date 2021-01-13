@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="flex fixed inset-x-0 h-full flex-col transition-all duration-300 md:max-w-6xl md:mx-auto"
+    class="flex fixed inset-x-0 flex-col h-full transition-all duration-300 md:max-w-6xl md:mx-auto"
     :class="{ 'm-3': !expanded }"
   >
     <div
@@ -12,7 +12,7 @@
     >
       <div class="flex items-center">
         <div
-          class="cursor-pointer transition-all duration-300 overflow-hidden"
+          class="overflow-hidden transition-all duration-300 cursor-pointer"
           :class="{
             'w-0': !['xs', 'sm'].includes($mq) && !horizontalMenuVisible,
             'w-12': ['xs', 'sm'].includes($mq) || horizontalMenuVisible
@@ -39,7 +39,7 @@
 
       <div class="justify-self-center -my-4">
         <img src="~/assets/logo-mobile.png" alt="Logo" class="h-12 md:hidden" />
-        <img src="~/assets/logo.png" alt="Logo" class="h-12 hidden md:block" />
+        <img src="~/assets/logo.png" alt="Logo" class="hidden h-12 md:block" />
       </div>
       <div class="justify-self-end">
         <button

@@ -1,58 +1,62 @@
 <template>
-  <div class="pt-24 mx-auto max-w-6xl md:pt-40">
-    <h2 class="text-xl font-bold text-center lg:text-2xl lg:text-left">
-      Поможем вам найти фильм
-    </h2>
-    <div
-      class="grid gap-5 place-items-center mt-5 md:grid-rows-3 lg:gap-0 lg:grid-rows-1 lg:grid-flow-col"
-    >
-      <div
-        v-for="(button, i) of buttons"
-        :key="i"
-        class="relative w-full lg:w-auto"
-      >
-        <filter-button
-          background-class="px-3 w-full h-28 lg:w-auto lg:px-0 lg:h-auto"
-          :class="{ 'lg:justify-self-start': i === 0 }"
-          :title="button.title"
-          :background="button.background"
-          @click.native="show(i)"
-        />
+  <div class="row">
+    <div class="col">
+      <div class="pt-24 mx-auto max-w-6xl md:pt-40">
+        <h2 class="text-xl font-bold text-center lg:text-2xl lg:text-left">
+          Поможем вам найти фильм
+        </h2>
+        <div
+          class="grid gap-5 place-items-center mt-5 md:grid-rows-3 lg:gap-0 lg:grid-rows-1 lg:grid-flow-col"
+        >
+          <div
+            v-for="(button, i) of buttons"
+            :key="i"
+            class="relative w-full lg:w-auto"
+          >
+            <filter-button
+              background-class="px-3 w-full h-28 lg:w-auto lg:px-0 lg:h-auto"
+              :class="{ 'lg:justify-self-start': i === 0 }"
+              :title="button.title"
+              :background="button.background"
+              @click.native="show(i)"
+            />
+            <transition name="fade">
+              <figure
+                v-if="panelIndex === i"
+                class="flex absolute flex-col justify-center items-center w-full arrow"
+              ></figure>
+            </transition>
+          </div>
+          <search-button
+            class="w-full cursor-pointer lg:w-auto drop-shadow lg:justify-self-end"
+            background-class="px-3 w-full h-32 lg:w-auto lg:px-0 lg:h-auto"
+            @click="search"
+          />
+        </div>
+
         <transition name="fade">
-          <figure
-            v-if="panelIndex === i"
-            class="absolute flex justify-center w-full arrow flex flex-col items-center"
-          ></figure>
-        </transition>
-      </div>
-      <search-button
-        class="w-full cursor-pointer lg:w-auto drop-shadow lg:justify-self-end"
-        background-class="px-3 w-full h-32 lg:w-auto lg:px-0 lg:h-auto"
-        @click="search"
-      />
-    </div>
+          <div v-if="panelIndex !== -1" class="relative mt-1 w-full">
+            <img
+              src="~/assets/backgrounds/panel.svg"
+              alt="Panel"
+              class="w-full h-64"
+            />
 
-    <transition name="fade">
-      <div v-if="panelIndex !== -1" class="relative w-full mt-1">
-        <img
-          src="~/assets/backgrounds/panel.svg"
-          alt="Panel"
-          class="w-full h-64"
-        />
-
-        <div class="absolute inset-0 w-full p-8">
-          <div class="flex gap-3 flex-wrap">
-            <div
-              v-for="(filter, j) of filters"
-              :key="j"
-              class="p-2 bg-gray-200 rounded-lg flex-1 text-center"
-            >
-              {{ filter }}
+            <div class="absolute inset-0 p-8 w-full">
+              <div class="flex flex-wrap gap-3">
+                <div
+                  v-for="(filter, j) of filters"
+                  :key="j"
+                  class="flex-1 p-2 text-center bg-gray-200 rounded-lg"
+                >
+                  {{ filter }}
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        </transition>
       </div>
-    </transition>
+    </div>
   </div>
 </template>
 
