@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="flex fixed inset-x-0 flex-col h-full transition-all duration-300 md:max-w-6xl md:mx-auto"
+    class="flex z-40 fixed flex-col h-full transition-all duration-300 md:max-w-6xl md:mx-auto"
     :class="{ 'm-3': !expanded }"
   >
     <div
@@ -12,12 +12,14 @@
     >
       <div class="flex items-center">
         <div
+          tabindex="0"
           class="overflow-hidden transition-all duration-300 cursor-pointer"
           :class="{
             'w-0': !['xs', 'sm'].includes($mq) && !horizontalMenuVisible,
             'w-12': ['xs', 'sm'].includes($mq) || horizontalMenuVisible
           }"
           @click="handleMenuButtonClick"
+          @keypress="handleMenuButtonClick"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -46,6 +48,7 @@
           v-if="!$auth.loggedIn"
           class="py-1 px-4 font-medium bg-yellow-500 rounded-lg"
           @click="login"
+          @keypress="login"
         >
           Вход
         </button>
@@ -69,8 +72,9 @@
             selector="#search-bar-md-portal"
             :disabled="['xs', 'sm'].includes($mq)"
           >
-            <label>
+            <label for="search-bar">
               <input
+                id="search-bar"
                 type="text"
                 placeholder="Поиск..."
                 class="py-1 px-3 w-full text-sm font-medium text-gray-800 bg-white rounded-lg outline-none md:border-2 box-border"
