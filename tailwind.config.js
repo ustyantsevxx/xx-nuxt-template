@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors')
+
 module.exports = {
   corePlugins: {
     container: false
@@ -8,11 +10,18 @@ module.exports = {
     purgeLayersByDefault: true
   },
 
-  purge: [],
+  purge: [
+    './components/**/*.{vue,js,ts}',
+    './layouts/**/*.vue',
+    './pages/**/*.vue',
+    './plugins/**/*.{js,ts}',
+    './nuxt.config.{js,ts}'
+  ],
 
   theme: {
     extend: {
       colors: {
+        gray: colors.trueGray,
         primary: '#48d1ea'
       },
       maxWidth: {
